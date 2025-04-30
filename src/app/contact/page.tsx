@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from 'next/link';
-import { Mail, Linkedin, Github, Phone } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 export default function ContactPage() {
   return (

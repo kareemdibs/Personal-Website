@@ -1,7 +1,4 @@
-import Image from 'next/image'; // Import Image component if using images
-import Link from 'next/link'; // Import Link if linking to projects
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video } from 'lucide-react'; // Import Video icon
 
 export default function ProjectsPage() {
   return (
@@ -19,7 +16,7 @@ export default function ProjectsPage() {
               <span className="font-medium text-foreground/90">Tech:</span> 
               <span className="text-sm text-muted-foreground ml-1">JavaScript, HTML, CSS</span>
             </p>
-            <p>Developed a browser extension that utilizes advanced AI reasoning capabilities using Gemini's API to assess the credibility of news articles and social media posts.</p>
+            <p>Developed a browser extension that utilizes advanced AI reasoning capabilities using Gemini&apos;s API to assess the credibility of news articles and social media posts.</p>
           </CardContent>
         </Card>
 
@@ -47,7 +44,7 @@ export default function ProjectsPage() {
               <span className="font-medium text-foreground/90">Tech:</span> 
               <span className="text-sm text-muted-foreground ml-1">TypeScript, React, Next.js, Supabase, CSS</span>
             </p>
-            <p>Developed a web app that ingests a patient's Continuity of Care Document (CCD XML), mines key eligibility facts, queries ClinicalTrials.gov v2, and uses GPT-4o to rank & summarize the best recruiting trials within X miles.</p>
+            <p>Developed a web app that ingests a patient&apos;s Continuity of Care Document (CCD XML), mines key eligibility facts, queries ClinicalTrials.gov v2, and uses GPT-4o to rank & summarize the best recruiting trials within X miles.</p>
           </CardContent>
         </Card>
 

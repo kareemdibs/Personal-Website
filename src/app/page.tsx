@@ -1,8 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, Linkedin, Mail, Phone, Github } from "lucide-react";
-import Link from 'next/link';
+import { GraduationCap } from "lucide-react";
 import Image from 'next/image';
 import mainPic from './images/MainPic.png';
 import me1 from './images/me1.jpg';
