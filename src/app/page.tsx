@@ -1,103 +1,144 @@
-import Image from "next/image";
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GraduationCap, Linkedin, Mail, Phone, Github } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import mainPic from './images/MainPic.png';
+import me1 from './images/me1.jpg';
+import me2 from './images/me2.jpg';
+import me3 from './images/me3.jpg';
+import me4 from './images/me4.jpg';
+import me5 from './images/me5.jpg';
+import me6 from './images/me6.jpg';
+import uclaLogo from './images/ucla.png';
+import { useRef, useState, useEffect } from 'react';
+
+const galleryImages = [me1, me2, me3, me4, me5, me6];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    // Calculate the boundary where the original images end
+    const scrollWidth = scrollContainer.scrollWidth;
+    const originalContentWidth = scrollWidth / 2; 
+
+    const startScrolling = () => {
+      intervalRef.current = setInterval(() => {
+        if (scrollContainer && !isPaused) {
+          // Check if scrollLeft is at or past the end of the original content
+          if (scrollContainer.scrollLeft >= originalContentWidth) {
+            // Instantly jump back to the beginning (matching position in first set)
+            scrollContainer.scrollLeft = scrollContainer.scrollLeft - originalContentWidth;
+          } else {
+            // Scroll right by 1 pixel
+            scrollContainer.scrollLeft += 1; 
+          }
+        }
+      }, 25); // Scroll speed (lower value = faster)
+    };
+
+    const stopScrolling = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+
+    startScrolling();
+
+    return () => stopScrolling();
+
+  }, [isPaused]);
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-start p-8 md:p-12 space-y-12">
+      {/* Header Section */}
+      <header className="text-center w-full max-w-4xl bg-primary py-16 px-10 rounded-lg shadow-lg mx-auto flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
+        {/* Image Placeholder */}
+        <Image 
+          src={mainPic} 
+          alt="Kareem Dibs" 
+          width={300} 
+          height={300} 
+          className="object-cover" 
+        />
+        {/* Text Content */}
+        <div className="text-center md:text-left">
+          <h1 className="text-5xl md:text-6xl font-bold mb-2 text-light">Kareem Dibs</h1>
+          <p className="text-xl md:text-2xl text-light/80">Computer Science Student at UCLA</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Education Section – now full width */}
+      <div className="w-full max-w-4xl">
+        <Card className="relative shadow-md hover:shadow-lg transition-shadow duration-300 w-full pt-12">
+          <div className="absolute top-4 right-4 w-12 h-12 bg-muted rounded-sm flex items-center justify-center">
+            {/* Replace with actual logo */}
+            <Image src={uclaLogo} alt="UCLA Logo" width={48} height={48} />
+          </div>
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-3 text-2xl font-semibold text-foreground">
+              <GraduationCap className="text-primary" size={28} />
+              <span>Education</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-muted-foreground pl-11 pr-6 pb-6">
+            <h3 className="text-xl font-semibold text-foreground">University of California, Los Angeles (UCLA)</h3>
+            <p className="text-lg">Bachelor of Science in Computer Science</p>
+            <p><strong className="font-medium text-foreground/90">Relevant Coursework:</strong> Data Structures & Algorithms, Software Construction, Operating Systems, Advanced Algorithms & Complexity, Machine Learning, Artificial Intelligence, Web Applications, Data Science, Linear Algebra, Probability and Statistics, Discrete Math, Theory of Computing, Computer Organization</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Image Gallery Section */}
+      <section className="w-full max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">Photo Gallery of my Life :)</h2>
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-muted-foreground/50 scrollbar-track-transparent"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        > 
+          {galleryImages.map((imgSrc, index) => (
+            <div key={index} className="flex-shrink-0 w-[200px] h-[200px] rounded-lg overflow-hidden"> 
+              <Image 
+                src={imgSrc} 
+                alt={`Gallery Image ${index + 1}`}
+                width={300}
+                height={300}
+                className="w-full h-full object-cover bg-muted"
+                priority={index < 3}
+              />
+            </div>
+          ))}
+          {/* Duplicate images for seamless loop illusion */}
+          {galleryImages.map((imgSrc, index) => (
+            <div key={`dup-${index}`} className="flex-shrink-0 w-[200px] h-[200px] rounded-lg overflow-hidden">
+              <Image
+                src={imgSrc}
+                alt={``} // duplicates are decorative
+                width={300}
+                height={300}
+                className="w-full h-full object-cover bg-muted"
+                loading="lazy"
+                aria-hidden="true"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="text-center mt-16 text-sm text-muted-foreground/80">
+        <p>&copy; {new Date().getFullYear()} Kareem Dibs. All rights reserved.</p>
       </footer>
-    </div>
+    </main>
   );
 }
