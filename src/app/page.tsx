@@ -10,10 +10,30 @@ import me3 from './images/me3.jpg';
 import me4 from './images/me4.jpg';
 import me5 from './images/me5.jpg';
 import me6 from './images/me6.jpg';
+import me7 from './images/me7.jpg';
+import me8 from './images/me8.jpg';
+import me9 from './images/me9.jpg';
+import me10 from './images/me10.jpg';
+import me11 from './images/me11.jpg';
+import me12 from './images/me12.jpg';
+import me13 from './images/me13.jpg';
+import me14 from './images/me14.jpg';
+import me15 from './images/me15.jpg';
+import me16 from './images/me16.jpg';
+import me17 from './images/me17.jpg';
+import me18 from './images/me18.jpg';
+import me19 from './images/me19.jpg';
+import me20 from './images/me20.jpg';
+import me21 from './images/me21.jpg';
+import me22 from './images/me22.jpg';
 import uclaLogo from './images/ucla.png';
 import { useRef, useState, useEffect } from 'react';
 
-const galleryImages = [me1, me2, me3, me4, me5, me6];
+const galleryImages = [
+  me1, me2, me3, me4, me5, me6, me7, me8, me9, me10, 
+  me11, me12, me13, me14, me15, me16, me17, me18, me19, 
+  me20, me21, me22
+];
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -90,7 +110,7 @@ export default function Home() {
           </CardHeader>
           <CardContent className="space-y-3 text-muted-foreground pl-11 pr-6 pb-6">
             <h3 className="text-xl font-semibold text-foreground">University of California, Los Angeles (UCLA)</h3>
-            <p className="text-lg">Bachelor of Science in Computer Science</p>
+            <p className="text-lg">Bachelor of Science in Computer Science | Samueli School of Engineering</p>
             <p><strong className="font-medium text-foreground/90">Relevant Coursework:</strong> Data Structures & Algorithms, Software Construction, Operating Systems, Advanced Algorithms & Complexity, Machine Learning, Artificial Intelligence, Web Applications, Data Science, Linear Algebra, Probability and Statistics, Discrete Math, Theory of Computing, Computer Organization</p>
           </CardContent>
         </Card>
@@ -106,7 +126,7 @@ export default function Home() {
           onMouseLeave={() => setIsPaused(false)}
         > 
           {galleryImages.map((imgSrc, index) => (
-            <div key={index} className="flex-shrink-0 w-[200px] h-[200px] rounded-lg overflow-hidden"> 
+            <div key={index} className="flex-shrink-0 w-[250px] h-[250px] rounded-lg overflow-hidden"> 
               <Image 
                 src={imgSrc} 
                 alt={`Gallery Image ${index + 1}`}
@@ -119,7 +139,7 @@ export default function Home() {
           ))}
           {/* Duplicate images for seamless loop illusion */}
           {galleryImages.map((imgSrc, index) => (
-            <div key={`dup-${index}`} className="flex-shrink-0 w-[200px] h-[200px] rounded-lg overflow-hidden">
+            <div key={`dup-${index}`} className="flex-shrink-0 w-[250px] h-[250px] rounded-lg overflow-hidden">
               <Image
                 src={imgSrc}
                 alt={``} // duplicates are decorative

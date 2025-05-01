@@ -44,7 +44,7 @@ export default function ProjectsPage() {
               <span className="font-medium text-foreground/90">Tech:</span> 
               <span className="text-sm text-muted-foreground ml-1">TypeScript, React, Next.js, Supabase, CSS</span>
             </p>
-            <p>Developed a web app that ingests a patient&apos;s Continuity of Care Document (CCD XML), mines key eligibility facts, queries ClinicalTrials.gov v2, and uses GPT-4o to rank & summarize the best recruiting trials within X miles.</p>
+            <p>Developed a web app that ingests a patient&apos;s Continuity of Care Document (CCD XML), mines key eligibility facts, queries ClinicalTrials.gov v2, and uses Gemini to rank & summarize the best recruiting trials within X miles.</p>
           </CardContent>
         </Card>
 
@@ -58,7 +58,7 @@ export default function ProjectsPage() {
               <span className="font-medium text-foreground/90">Tech:</span> 
               <span className="text-sm text-muted-foreground ml-1">JavaScript, React, Node.js, MongoDB, Python, HTML, Tailwind CSS</span>
             </p>
-            <p>Developed a web app for buying and selling UCLA course seats, addressing limited seat issues.</p>
+            <p>Developed a web app for trading UCLA course seats, addressing limited seat issues.</p>
           </CardContent>
         </Card>
       </div>

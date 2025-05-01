@@ -33,7 +33,7 @@ export default function InterestsPage() {
     },
     {
       title: 'Poker',
-      description: 'Hard to beat a Friday night playing Poker with friends.',
+      description: 'Hard to beat a Friday night playing Poker with friends. I enjoy the mix of strategy, laughs, and good company!',
       imageSrc: interestImage5, 
     },
     {
