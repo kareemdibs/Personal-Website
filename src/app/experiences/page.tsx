@@ -16,7 +16,7 @@ export default function ExperiencesPage() {
           <div className="absolute top-4 right-4 w-12 h-12 bg-muted rounded-sm flex items-center justify-center text-xs text-muted-foreground">
             <Image src={googleLogo} alt="Google Logo" width={48} height={48} />
           </div>
-          <CardHeader className="pt-0">
+          <CardHeader className="pt-0 pr-16 md:pr-0">
             <CardTitle className="text-2xl font-semibold text-accent-foreground">Incoming Software Engineer Intern</CardTitle>
             <CardDescription className="text-lg font-medium text-primary pt-1">Google | New York, NY | June 2025 – Sept 2025</CardDescription>
           </CardHeader>
@@ -31,7 +31,7 @@ export default function ExperiencesPage() {
           <div className="absolute top-4 right-4 w-12 h-12 bg-muted rounded-sm flex items-center justify-center text-xs text-muted-foreground">
             <Image src={awsLogo} alt="AWS Logo" width={48} height={48} />
           </div>
-          <CardHeader className="pt-0">
+          <CardHeader className="pt-0 pr-16 md:pr-0">
             <CardTitle className="text-2xl font-semibold text-accent-foreground">Software Engineer Intern</CardTitle>
             <CardDescription className="text-lg font-medium text-primary pt-1">Amazon Web Services | Arlington, VA | June 2024 – Sept 2024</CardDescription>
           </CardHeader>
@@ -46,7 +46,7 @@ export default function ExperiencesPage() {
           <div className="absolute top-4 right-4 w-12 h-12 bg-muted rounded-sm flex items-center justify-center text-xs text-muted-foreground">
             <Image src={evyreeLogo} alt="Evyree Logo" width={48} height={48} />
           </div>
-          <CardHeader className="pt-0">
+          <CardHeader className="pt-0 pr-16 md:pr-0">
             <CardTitle className="text-2xl font-semibold text-accent-foreground">Software Engineer Intern</CardTitle>
             <CardDescription className="text-lg font-medium text-primary pt-1">Evyree | Los Angeles, CA | July 2023 – Dec 2023</CardDescription>
           </CardHeader>
