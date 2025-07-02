@@ -115,44 +115,50 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
+      
+      {false && (
+        <>
+          {/* Image Gallery Section (commented out for now) */}
+          <section className="w-full max-w-6xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">Photo Gallery of my Life :)</h2>
+            <div 
+              ref={scrollContainerRef}
+              className="flex overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-muted-foreground/50 scrollbar-track-transparent"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            > 
+              {galleryImages.map((imgSrc, index) => (
+                <div key={index} className="flex-shrink-0 w-[250px] h-[250px] rounded-lg overflow-hidden"> 
+                  <Image 
+                    src={imgSrc} 
+                    alt={`Gallery Image ${index + 1}`}
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-cover bg-muted"
+                    priority={index < 3}
+                  />
+                </div>
+              ))}
+              {/* Duplicate images for seamless loop illusion */}
+              {galleryImages.map((imgSrc, index) => (
+                <div key={`dup-${index}`} className="flex-shrink-0 w-[250px] h-[250px] rounded-lg overflow-hidden">
+                  <Image
+                    src={imgSrc}
+                    alt={``}
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-cover bg-muted"
+                    loading="lazy"
+                    aria-hidden="true"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
 
-      {/* Image Gallery Section */}
-      <section className="w-full max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">Photo Gallery of my Life :)</h2>
-        <div 
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-muted-foreground/50 scrollbar-track-transparent"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        > 
-          {galleryImages.map((imgSrc, index) => (
-            <div key={index} className="flex-shrink-0 w-[250px] h-[250px] rounded-lg overflow-hidden"> 
-              <Image 
-                src={imgSrc} 
-                alt={`Gallery Image ${index + 1}`}
-                width={300}
-                height={300}
-                className="w-full h-full object-cover bg-muted"
-                priority={index < 3}
-              />
-            </div>
-          ))}
-          {/* Duplicate images for seamless loop illusion */}
-          {galleryImages.map((imgSrc, index) => (
-            <div key={`dup-${index}`} className="flex-shrink-0 w-[250px] h-[250px] rounded-lg overflow-hidden">
-              <Image
-                src={imgSrc}
-                alt={``} // duplicates are decorative
-                width={300}
-                height={300}
-                className="w-full h-full object-cover bg-muted"
-                loading="lazy"
-                aria-hidden="true"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      
 
       {/* Footer Section */}
       <footer className="text-center mt-16 text-sm text-muted-foreground/80">
