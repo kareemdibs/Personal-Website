@@ -17,11 +17,11 @@ export default function ExperiencesPage() {
             <Image src={googleLogo} alt="Google Logo" width={48} height={48} />
           </div>
           <CardHeader className="pt-0 pr-16 md:pr-0">
-            <CardTitle className="text-2xl font-semibold text-accent-foreground">Incoming Software Engineer Intern</CardTitle>
+            <CardTitle className="text-2xl font-semibold text-accent-foreground">Software Engineer Intern</CardTitle>
             <CardDescription className="text-lg font-medium text-primary pt-1">Google | New York, NY | June 2025 – Sept 2025</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Google Core</p>
+            <p>Validation AI & Integration Testing Systems</p>
           </CardContent>
         </Card>
         
